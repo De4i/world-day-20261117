@@ -31,3 +31,12 @@ finance gap; Mozambique's opposition leader going on trial in Maputo; Nigeria's 
 US satellite intelligence; floods in Soweto; the WMO's Super El Niño warning; the
 day's market moves; and the sport of the day, from Germany's 5–0 win in Berlin to
 Dhoni's retirement from the IPL.
+
+## The photographs
+
+The pictures are made with Cloudflare Workers AI's FLUX.1-schnell (1024×1024, four
+steps), prompted as documentary news photographs and asked for *no text and no
+lettering* — image models draw lettering badly, and this page says everything it
+has to say in its own type. `poster/make-photos.py` holds every prompt and the
+crop each picture gets in the layout; `poster/img/` holds the crops the page
+loads. The entry itself ships only the rendered PNG.
