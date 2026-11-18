@@ -40,3 +40,12 @@ lettering* — image models draw lettering badly, and this page says everything 
 has to say in its own type. `poster/make-photos.py` holds every prompt and the
 crop each picture gets in the layout; `poster/img/` holds the crops the page
 loads. The entry itself ships only the rendered PNG.
+
+## Two variants, and the layout bug that decided between them
+
+`poster-v3.html` prints 26 stories with the largest type; `poster-v4.html` prints 36
+stories in a five-column grid with a photographic lead and the same ten pictures.
+Both give the briefs grid an explicit height rather than letting the flex column
+divide the page: with a device-metrics override active (which is how the capture is
+taken) the browser divides that space differently, and a flex-sized grid then pushes
+its last briefs over the map band. The explicit height holds in both modes.

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The World Day — Tuesday 17 November 2026</title>
+<style>
+  :root{ --paper:#f5f0e4; --ink:#17130e; --ink2:#3d362c; --rule:#b9ac93; --red:#8d1b12; }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;width:1024px;height:1024px;overflow:hidden;background:var(--paper);}
+  body{
+    font-family:"Liberation Serif","DejaVu Serif",Georgia,serif; color:var(--ink);
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(0,0,0,.035), transparent 55%),
+      radial-gradient(circle at 82% 88%, rgba(0,0,0,.035), transparent 55%),
+      repeating-linear-gradient(0deg, rgba(0,0,0,.012) 0 1px, transparent 1px 3px);
+  }
+  .page{width:1024px;height:1024px;padding:14px 20px 10px;display:flex;flex-direction:column;gap:7px}
+  .page > *{flex:0 0 auto}
+  .sans{font-family:"Liberation Sans","DejaVu Sans",Arial,sans-serif}
+  .caps{text-transform:uppercase;letter-spacing:.09em}
+
+  .topbar{display:flex;justify-content:space-between;align-items:baseline;font-size:8.6px;color:var(--ink2);border-bottom:1px solid var(--ink);padding-bottom:3px}
+  .masthead{display:flex;align-items:flex-end;gap:14px;border-bottom:2.5px solid var(--ink);padding-bottom:4px}
+  .mast-side{width:152px;font-size:7.6px;line-height:1.32;color:var(--ink2)}
+  .mast-side.right{text-align:right}
+  .mast-title{flex:1;text-align:center}
+  .mast-title h1{margin:0;font-size:53px;line-height:.94;letter-spacing:-1.5px;font-weight:700}
+  .mast-title .sub{font-size:9.6px;margin-top:2px;letter-spacing:.22em}
+  .dateline{display:flex;align-items:center;gap:10px;margin-top:3px}
+  .dateline .rule{flex:1;height:1px;background:var(--rule)}
+  .dateline .txt{font-size:11px;letter-spacing:.15em;white-space:nowrap}
+  .deck-line{font-size:8.6px;font-style:italic;color:var(--ink2);text-align:center;margin-top:1px}
+
+  /* ---------- lead ---------- */
+  .lead{display:grid;grid-template-columns:1fr 292px;gap:13px;border-bottom:1px solid var(--ink);padding-bottom:7px}
+  .lead-main{display:flex;flex-direction:column}
+  .kicker{font-size:8.4px;color:var(--red);letter-spacing:.13em;margin-bottom:2px}
+  h2.lead-h{margin:0 0 4px;font-size:30px;line-height:1.01;letter-spacing:-.5px}
+  .lead-deck{font-size:11.2px;line-height:1.27;color:var(--ink2);margin:0 0 5px}
+  .hero{position:relative;border:1px solid var(--ink);overflow:hidden;height:152px;background:#101820}
+  .hero img{display:block;width:100%;height:100%;object-fit:cover}
+  .hero .credit{position:absolute;left:0;right:0;bottom:0;padding:3px 6px;font-size:6.9px;color:#f3efe4;background:linear-gradient(0deg,rgba(10,12,16,.85),rgba(10,12,16,0))}
+  .lead-briefs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:7px;border-top:1px solid var(--rule);padding-top:5px}
+  .lead-briefs h4{margin:0 0 2px;font-size:11.4px;line-height:1.08}
+  .lead-briefs p{margin:0;font-size:9px;line-height:1.3;color:var(--ink2)}
+  .lead-briefs .place{font-size:7.5px;color:var(--red);letter-spacing:.1em}
+
+  .sidebar{display:flex;flex-direction:column;gap:7px;border-left:1px solid var(--rule);padding-left:12px}
+  .sideitem{padding-bottom:7px;border-bottom:1px solid var(--rule)}
+  .sideitem:last-child{border-bottom:0;padding-bottom:0}
+  .sideitem img{display:block;width:100%;height:74px;object-fit:cover;border:1px solid var(--ink);margin-bottom:3px;background:#e6ddc9}
+  .sideitem h3{margin:0 0 2px;font-size:15.4px;line-height:1.04}
+  .sideitem p{margin:0;font-size:8.8px;line-height:1.28;color:var(--ink2)}
+
+  /* ---------- brief columns ---------- */
+  .cols{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;height:344px}
+  .col{display:flex;flex-direction:column;gap:2px;min-height:0}
+  .colhead{font-size:9.2px;font-weight:700;letter-spacing:.13em;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+  .b{padding-bottom:2px;border-bottom:1px solid rgba(185,172,147,.7)}
+  .b:last-child{border-bottom:0;padding-bottom:0}
+  .b .pl{font-size:7.6px;color:var(--red);letter-spacing:.07em}
+  .b .hl{margin:0;font-size:11.2px;line-height:1.09}
+  .b .body{margin:1px 0 0;font-size:8.6px;line-height:1.26;color:var(--ink2)}
+  .b img{display:block;width:100%;height:68px;object-fit:cover;border:1px solid var(--ink);margin-bottom:2px;background:#e6ddc9}
+
+  /* ---------- map + numbers ---------- */
+  .databand{display:grid;grid-template-columns:1fr 272px;gap:14px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:5px 0;height:152px}
+  .mapwrap{display:flex;flex-direction:column;min-width:0}
+  .maphead{display:flex;justify-content:space-between;align-items:baseline;font-size:8.7px;margin-bottom:2px}
+  .mapsvg{flex:1;min-height:0}
+  .mapsvg svg{display:block;width:100%;height:100%}
+  .legend{font-size:7.5px;color:var(--ink2);line-height:1.45;margin-top:3px;column-count:2;column-gap:12px}
+  .legend b{color:#8d1b12}
+  .numbers{border-left:1px solid var(--rule);padding-left:11px;display:flex;flex-direction:column}
+  .numbers h3{margin:0 0 3px;font-size:11.2px;letter-spacing:.1em;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+  .stat{display:flex;justify-content:space-between;align-items:baseline;font-size:8.9px;padding:2.6px 0;border-bottom:1px dotted rgba(185,172,147,.8)}
+  .stat:last-child{border-bottom:0}
+  .stat .v{font-weight:700;font-family:"Liberation Sans",Arial,sans-serif;font-size:10.2px}
+  .down{color:var(--red)}
+  .footer{display:flex;justify-content:space-between;align-items:baseline;font-size:7.5px;color:var(--ink2);border-top:1.5px solid var(--ink);padding-top:3px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar sans caps">
+    <span>Compiled for one day only · Tuesday 17 November 2026</span>
+    <span id="storycount">—</span>
+    <span>Six continents · 24 time zones · One page</span>
+  </div>
+
+  <div class="masthead">
+    <div class="mast-side caps">
+      <div>Summit day</div>
+      <div style="margin-top:2px;text-transform:none;letter-spacing:0;font-style:italic;font-family:'Liberation Serif',serif;font-size:7.8px">Shenzhen and Manila set the day's agenda as Washington tightens the chip rules</div>
+    </div>
+    <div class="mast-title">
+      <h1>THE WORLD DAY</h1>
+      <div class="sub sans caps">Tuesday · 17 November 2026</div>
+    </div>
+    <div class="mast-side right caps">
+      <div>One day, one page</div>
+      <div style="margin-top:2px;text-transform:none;letter-spacing:0;font-style:italic;font-family:'Liberation Serif',serif;font-size:7.8px">Every story below was reported on the day it happened, from the world's wires and papers</div>
+    </div>
+  </div>
+
+  <div class="dateline">
+    <div class="rule"></div>
+    <div class="txt sans caps">Tuesday · 17 November 2026 · The world's news in one page</div>
+    <div class="rule"></div>
+  </div>
+  <div class="deck-line">From the summit halls of Shenzhen to the courtrooms of Maputo — a single day's news, photographed, counted and mapped.</div>
+
+  <div class="lead">
+    <div class="lead-main">
+      <div class="kicker sans caps">Shenzhen · Manila · Washington — the day's biggest story</div>
+      <h2 class="lead-h">Xi opens APEC as Trump tours Asia — and Washington tightens the chip rules</h2>
+      <p class="lead-deck">China's showcase city hosts the Asia-Pacific summit, the Quad meets in Manila, and an interim rule curbs advanced AI-chip access for datacentres in five countries — hours before a Trump–Xi–Putin trilateral set for Thursday.</p>
+      <div class="hero">
+        <img src="img/hero-summit.jpg" alt="Leaders at a press conference on the day of the APEC and Quad summits">
+        <div class="credit sans caps">Summit day: leaders face the press as Shenzhen opens APEC 2026 and the Quad meets in Manila · picture: the day's news desk</div>
+      </div>
+      <div class="lead-briefs">
+        <div>
+          <div class="place sans caps">Manila</div>
+          <h4>Quad promises "peace through strength"</h4>
+          <p>Joint exercises, critical minerals and the Super Intelligence Accelerator, agreed at the four-way table.</p>
+        </div>
+        <div>
+          <div class="place sans caps">Washington</div>
+          <h4>Chip rule closes the loophole</h4>
+          <p>Licences are now required for advanced AI chips and servers sent to datacentres in five countries.</p>
+        </div>
+        <div>
+          <div class="place sans caps">Shenzhen</div>
+          <h4>A three-way table set for Thursday</h4>
+          <p>Putin, already in town, is to meet Trump and Xi together for the first time.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sideitem">
+        <img src="img/kerch.jpg" alt="The Kerch bridge after the overnight missile strike">
+        <div class="kicker sans caps">Crimea</div>
+        <h3>Ukraine hits the Kerch bridge</h3>
+        <p>Flamingo missiles critically damaged the road and rail link overnight, Ukrainian officials said — a blow after Monday's strike on its arch.</p>
+      </div>
+      <div class="sideitem">
+        <img src="img/markets.jpg" alt="Traders watching falling prices">
+        <div class="kicker sans caps">New York</div>
+        <h3>Stocks slide before Nvidia's numbers</h3>
+        <p>The Dow fell 1.64%, the S&amp;P 1.03% and the Nasdaq 0.74% as the chip trade wobbled anew.</p>
+      </div>
+      <div class="sideitem">
+        <div class="kicker sans caps">Geneva</div>
+        <h3>Measles-free no longer, after 26 years</h3>
+        <p>PAHO revoked the US status with 5,412 cases in 2026.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cols" id="cols"></div>
+
+  <div class="databand">
+    <div class="mapwrap">
+      <div class="maphead sans caps">
+        <span>Where the day happened · 12 places on one map</span>
+        <span id="mapnote" style="color:#3d362c"></span>
+      </div>
+      <div class="mapsvg" id="map"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="numbers">
+      <h3 class="sans caps">The day in numbers</h3>
+      <div class="stat"><span>Dow Jones</span><span class="v down">−1.64%</span></div>
+      <div class="stat"><span>S&amp;P 500</span><span class="v down">−1.03%</span></div>
+      <div class="stat"><span>Nasdaq Composite</span><span class="v down">−0.74%</span></div>
+      <div class="stat"><span>Asia benchmark</span><span class="v down">−1.6%</span></div>
+      <div class="stat"><span>Brent crude</span><span class="v">$92.72</span></div>
+      <div class="stat"><span>Bitcoin</span><span class="v down">$64,755</span></div>
+      <div class="stat"><span>Fed Dec. rate-rise odds</span><span class="v">93.5%</span></div>
+      <div class="stat"><span>Measles cases in the US, 2026</span><span class="v">5,412</span></div>
+      <div class="stat"><span>Bundibugyo cases / deaths</span><span class="v">11,000+ / 5,400</span></div>
+      <div class="stat"><span>Peru's sol, one day</span><span class="v down">−3.28%</span></div>
+    </div>
+  </div>
+
+  <div class="footer sans caps">
+    <span>The World Day · an illustrated front page for Tuesday 17 November 2026</span>
+    <span>Storm warning: cyclone Akvan aims at India's east coast on Friday</span>
+    <span id="footcount">—</span>
+  </div>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   The day's stories. `photo` names a picture beside this page; `top`
+   prints the one-line body under an illustrated brief.
+------------------------------------------------------------------ */
+const BRIEFS = [
+  /* Europe */
+  {r:"Europe", place:"Antalya", hl:"COP31 hears a tipping-point warning", body:"Johan Rockström told the Antalya talks that forests and emissions cuts must move together to avoid irreversible change.", photo:"climate.jpg", top:1},
+  {r:"Europe", place:"Berlin", hl:"Klopp's Germany dismantle the Dutch", body:"A Wirtz brace helped seal a 5-0 win and top spot in the group."},
+  {r:"Europe", place:"Brussels", hl:"EU says the AI boom is lifting its exports", nb:1},
+  {r:"Europe", place:"Frankfurt", hl:"Borrowing rises on energy and defence", nb:1},
+  /* Asia-Pacific */
+  {r:"Asia-Pacific", place:"Manila", hl:"Quad leaders vow joint naval drills", body:"Exercises and a minerals pact, promised in the name of \"peace through strength\"."},
+  {r:"Asia-Pacific", place:"Taipei", hl:"Taiwan presses for $14bn in US arms", body:"The government called the package urgent, the terms a decision \"up to\" Trump."},
+  {r:"Asia-Pacific", place:"Visakhapatnam", hl:"Cyclone Akvan aims at India's east coast", body:"Landfall expected on Friday with winds near 120 km/h along the Andhra coast.", photo:"cyclone.jpg"},
+  {r:"Asia-Pacific", place:"Port Moresby", hl:"PNG tells Xi Taiwan \"no longer operates\"", body:"James Marape said the switch would assist Beijing's reunification efforts."},
+  {r:"Asia-Pacific", place:"Islamabad", hl:"Imran Khan: from jail, \"I may die\"", body:"The imprisoned former prime minister's letter was published on the day."},
+  {r:"Asia-Pacific", place:"New Delhi", hl:"Assam's citizenship crisis reaches Delhi", nb:1},
+  {r:"Asia-Pacific", place:"Dehradun", hl:"Six killed as a bus falls into a gorge", nb:1},
+  /* Middle East */
+  {r:"Middle East", place:"Washington", hl:"\"They are crazy\": Trump on the Iran plot", body:"US intelligence reported plans for a radiological attack in the capital; Tehran dismissed the claim."},
+  {r:"Middle East", place:"Manama", hl:"Iran hits a US radar site in Bahrain", body:"A third strike on the kingdom in five days raised the risk of direct confrontation."},
+  {r:"Middle East", place:"Muscat", hl:"Tanker attacked near the Strait of Hormuz", body:"The hit near Oman fed supply fears in a market already short of good news."},
+  {r:"Middle East", place:"Jerusalem", hl:"Opposition seeks a \"coup\" inquiry", nb:1},
+  /* Africa */
+  {r:"Africa", place:"Kinshasa", hl:"Bundibugyo outbreak doubles in three months", body:"The WHO's emergency committee heard cases passed 11,000 and deaths 5,400 across 67 health zones.", photo:"ebola.jpg", top:1},
+  {r:"Africa", place:"Maputo", hl:"Mondlane tried on terrorism charges", body:"The opposition leader, second in the disputed 2024 poll, faces up to 24 years.", photo:"court.jpg"},
+  {r:"Africa", place:"Abuja", hl:"US satellite data guides strikes on militants", body:"Real-time intelligence helped kill bandit and terrorist leaders before January's vote."},
+  {r:"Africa", place:"Johannesburg", hl:"Soweto floods as the rain keeps falling", body:"Emergency teams were sent to low-lying areas and residents warned off swollen streams.", photo:"floods.jpg"},
+  {r:"Africa", place:"Pretoria", hl:"Super El Niño threatens the harvest", body:"The WMO expects drought in southern Africa and floods in the Horn from December."},
+  {r:"Africa", place:"Abuja", hl:"Militants' Starlink and crypto use tracked", nb:1},
+  {r:"Africa", place:"Birnin Kebbi", hl:"Tinubu opens his re-election campaign", nb:1},
+  /* Americas */
+  {r:"Americas", place:"Washington", hl:"Court blocks expulsions of trans troops", body:"A divided DC Circuit refused to let the Pentagon remove two dozen service members."},
+  {r:"Americas", place:"Lima", hl:"Peru's sol slides as the region sells off", body:"The currency fell 3.28% after the central bank's hike, while Vale hit a 12-month low."},
+  {r:"Americas", place:"New York", hl:"Nasdaq's wobble spreads to Asia", nb:1},
+  {r:"Americas", place:"Washington", hl:"MSMEs face a $4 trillion finance gap", nb:1},
+  /* World */
+  {r:"World", place:"Shenzhen", hl:"Beijing casts itself as trade's steady hand", body:"State media framed APEC 2026 as where the \"Asia-Pacific miracle\" begins, against \"unilateralism\"."},
+  {r:"World", place:"Geneva", hl:"Disrupting chemicals strike before birth", body:"A UNEP and WHO report found the effects on health begin in the womb.", photo:"clinic.jpg"},
+  {r:"World", place:"Chennai", hl:"Dhoni retires from the IPL", body:"The keeper-batter's farewell followed the league's retention lists.", photo:"cricket.jpg"},
+  {r:"World", place:"Tehran", hl:"Hormuz attack lifts oil's risk premium", nb:1},
+];
+
+/* Places for the map: lon, lat, number, label, and whether the label is
+   printed on the map (the rest are named in the key beneath it). */
+const PLACES = [
+  {lon:-77.0,  lat:38.9,  n:1,  t:"Washington", lbl:1},
+  {lon:-74.0,  lat:40.7,  n:2,  t:"New York"},
+  {lon:120.9,  lat:22.6,  n:3,  t:"Shenzhen", lbl:1},
+  {lon:121.0,  lat:14.6,  n:4,  t:"Manila", lbl:1},
+  {lon:-3.7,   lat:40.4,  n:5,  t:"Madrid"},
+  {lon:30.5,   lat:50.4,  n:6,  t:"Kyiv", lbl:1},
+  {lon:50.6,   lat:26.2,  n:7,  t:"Manama"},
+  {lon:58.5,   lat:23.6,  n:8,  t:"Muscat"},
+  {lon:15.3,   lat:-4.3,  n:9,  t:"Kinshasa", lbl:1},
+  {lon:32.6,   lat:-25.9, n:10, t:"Maputo"},
+  {lon:28.0,   lat:-26.2, n:11, t:"Johannesburg"},
+  {lon:-77.0,  lat:-12.0, n:12, t:"Lima", lbl:1}
+];
+
+/* ------------------------------------------------------------------
+   Columns: measure every brief, then split the continuous run into four
+   columns by dynamic programming so no column is clipped.
+------------------------------------------------------------------ */
+function itemHTML(b){
+  return `
+        <div class="b">
+          ${b.photo?`<img src="img/${b.photo}" alt="">`:''}
+          <div class="pl sans caps">${b.place}</div>
+          <p class="hl">${b.hl}</p>
+          ${b.body && (b.top || b.photo) ? `<p class="body">${b.body}</p>` : ''}
+        </div>`;
+}
+
+function columnHTML(items){
+  const regions = [...new Set(items.map(b=>b.r))].join(' · ');
+  return `
+    <div class="col">
+      <div class="colhead sans caps"><span>${regions}</span></div>
+      ${items.map(itemHTML).join('')}
+    </div>`;
+}
+
+function measureBriefs(){
+  const probe = document.createElement('div');
+  probe.className = 'col';
+  probe.style.cssText = 'position:absolute;left:-99999px;top:0;width:236px';
+  probe.innerHTML = `<div class="colhead sans caps"><span>Europe · Asia-Pacific</span></div>` + BRIEFS.map(itemHTML).join('');
+  document.body.appendChild(probe);
+  const kids = [...probe.children];
+  const headH = kids[0].getBoundingClientRect().height;
+  const h = kids.slice(1).map(el=>el.getBoundingClientRect().height);
+  probe.remove();
+  return {h, headH};
+}
+
+function balanceSplit(h, headH, k){
+  const GAP = 2, n = h.length;
+  const span = (i,j)=>{
+    let s = 0;
+    for (let t=i;t<j;t++) s += h[t];
+    return s + Math.max(0, j-i-1)*GAP + headH;
+  };
+  const inf = 1e9;
+  const best = Array.from({length:k+1},()=>new Array(n+1).fill(inf));
+  const from = Array.from({length:k+1},()=>new Array(n+1).fill(-1));
+  best[0][0] = 0;
+  for (let c=1;c<=k;c++)
+    for (let j=c;j<=n;j++)
+      for (let i=c-1;i<j;i++){
+        const v = Math.max(best[c-1][i], span(i,j));
+        if (v < best[c][j]){ best[c][j] = v; from[c][j] = i; }
+      }
+  const cuts = [n]; let j = n;
+  for (let c=k;c>0;c--){ j = from[c][j]; cuts.push(j); }
+  cuts.reverse();
+  const cols = [];
+  for (let c=0;c<k;c++) cols.push(BRIEFS.slice(cuts[c], cuts[c+1]));
+  return cols;
+}
+
+function render(){
+  const COLS = 5;
+  const measured = measureBriefs();
+  const chunks = balanceSplit(measured.h, measured.headH, COLS);
+  const host = document.getElementById('cols');
+  host.innerHTML = chunks.map(columnHTML).join('');
+
+  for (let pass = 0; pass < 40; pass++){
+    const box = document.querySelector('.col').getBoundingClientRect().height + 0.5;
+    const cols = [...document.querySelectorAll('.col')];
+    const colH = cols.map(c=>{ const k=[...c.children]; return k.reduce((a,e)=>a+e.getBoundingClientRect().height,0) + Math.max(0,k.length-1)*2; });
+    let moved = false;
+    for (let i=0;i<cols.length-1;i++){
+      const kids = [...cols[i].children];
+      if (kids.length < 5 || colH[i] <= box) continue;
+      const itemH = kids[kids.length-1].getBoundingClientRect().height;
+      if (colH[i+1] + itemH + 2 <= box){
+        chunks[i+1].unshift(chunks[i].pop());
+        host.innerHTML = chunks.map(columnHTML).join('');
+        moved = true; break;
+      }
+    }
+    if (!moved) break;
+  }
+
+  const n = BRIEFS.length + 6;
+  const pictures = 3 + BRIEFS.filter(b=>b.photo).length;
+  document.getElementById('storycount').textContent = n + " stories · " + pictures + " photographs";
+  document.getElementById('footcount').textContent = n + " stories · 6 continents · " + pictures + " photographs";
+  return n;
+}
+
+/* ------------------------------------------------------------------
+   The world map: Natural Earth 110m coastlines, equirectangular, with a
+   numbered marker for every place in the day's news.
+------------------------------------------------------------------ */
+async function drawMap(){
+  const W = 700, H = 160;
+  const lon0=-180, lon1=180, lat0=-58, lat1=84;
+  const px = lon => (lon-lon0)/(lon1-lon0)*W;
+  const py = lat => (lat1-lat)/(lat1-lat0)*H;
+  let land = "";
+  try{
+    const r = await fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_land.geojson');
+    const gj = await r.json();
+    const d = [];
+    const ring = coords => {
+      let s = "";
+      coords.forEach(([lon,lat],i)=>{ s += (i?"L":"M")+px(lon).toFixed(1)+" "+py(lat).toFixed(1); });
+      return s+"Z";
+    };
+    gj.features.forEach(f=>{
+      const g = f.geometry; if(!g) return;
+      if(g.type==='Polygon') g.coordinates.forEach(rg=>d.push(ring(rg)));
+      else if(g.type==='MultiPolygon') g.coordinates.forEach(p=>p.forEach(rg=>d.push(ring(rg))));
+    });
+    land = d.join(" ");
+    document.getElementById('mapnote').textContent = "Natural Earth 110m coastlines";
+  }catch(e){
+    document.getElementById('mapnote').textContent = "coastline source unavailable";
+  }
+  const placed = [];
+  const marks = PLACES.map(p=>{
+    const x = px(p.lon), y = py(p.lat);
+    let lx = x + 13, ly = y + 3.2, anchor = "start";
+    if (p.lbl){
+      const side = x < W * 0.62 ? 1 : -1;
+      const lw = p.t.length * 3.9 + 6;
+      for (const dy of [0, -11, 11, -22, 22]){
+        const x1 = side > 0 ? x + 13 : x - 13 - lw;
+        const bx = {x1, x2: x1 + lw, y1: ly + dy - 7, y2: ly + dy + 3};
+        const hit = placed.some(b=>!(bx.x2 < b.x1 || bx.x1 > b.x2 || bx.y2 < b.y1 || bx.y1 > b.y2));
+        if (!hit){ placed.push(bx); lx = side > 0 ? x + 13 : x - 13; ly = ly + dy; anchor = side > 0 ? "start" : "end"; break; }
+      }
+    }
+    return `<g>
+      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="9.2" fill="#8d1b12" stroke="#f6f1e6" stroke-width="1.4"/>
+      <text x="${x.toFixed(1)}" y="${(y+3.4).toFixed(1)}" text-anchor="middle" font-family="Liberation Sans, Arial" font-size="10" font-weight="bold" fill="#f6f1e6">${p.n}</text>
+      ${p.lbl?`<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${anchor}" font-family="Liberation Sans, Arial" font-size="8.2" fill="#2b2418">${p.t}</text>`:''}
+    </g>`;
+  }).join('');
+  document.getElementById('map').innerHTML = `
+  <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
+    <rect width="${W}" height="${H}" fill="#e4dcc9"/>
+    <g stroke="#cfc5ac" stroke-width=".5" opacity=".85">
+      ${[0,1,2,3,4,5].map(i=>`<path d="M0 ${(i*H/5).toFixed(1)} L${W} ${(i*H/5).toFixed(1)}"/>`).join('')}
+      ${[0,1,2,3,4,5,6,7,8].map(i=>`<path d="M${(i*W/8).toFixed(1)} 0 L${(i*W/8).toFixed(1)} ${H}"/>`).join('')}
+    </g>
+    <path d="${land}" fill="#b9a67f" stroke="#4b4235" stroke-width=".5" fill-rule="evenodd"/>
+    ${marks}
+  </svg>`;
+  document.getElementById('legend').innerHTML =
+    PLACES.map(p=>`<b>${p.n}</b> ${p.t}`).join(" · ");
+}
+
+render();
+drawMap();
+</script>
+</body>
+</html>
