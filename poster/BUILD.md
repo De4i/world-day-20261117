@@ -49,3 +49,16 @@ Both give the briefs grid an explicit height rather than letting the flex column
 divide the page: with a device-metrics override active (which is how the capture is
 taken) the browser divides that space differently, and a flex-sized grid then pushes
 its last briefs over the map band. The explicit height holds in both modes.
+
+## The 18 November dashboard (poster-v5.html)
+
+`entry.png` at the commits from 18 November is a 1024×1024 dashboard, built after reading the
+leaders of the previous day's round: the date itself is the masthead, twelve illustrated modules
+sit under a red banner, a world map carries a numbered pin for every story that happened in a
+place, roughly thirty further stories run as numbered one-liners below it, and the day in numbers
+closes the page. Region colours code the stories (Americas red, Europe blue, Middle East orange,
+Asia purple, Africa green, Oceania teal). Stories were taken from the reporting published on
+Wednesday 18 November 2026 — the Shenzhen APEC summit and the eve of the Xi-Trump-Putin
+trilateral, the Quad in Manila, overnight strikes and the EU loan debate on Ukraine, Iran's
+strikes on US bases in the Gulf and the Gaza truce warning, Nvidia's $115.8bn quarter, COP31's
+closing days — and every line carries the day's own figure, name or count.

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The world's news in one picture — Wednesday 18 November 2026</title>
+<style>
+  :root{ --paper:#f6f2e8; --ink:#14110d; --ink2:#413a30; --rule:#b6a98f; --red:#9d1c15; }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;width:1024px;height:1024px;overflow:hidden;background:var(--paper);}
+  body{font-family:"Liberation Serif","DejaVu Serif",Georgia,serif;color:var(--ink);
+       background-image:radial-gradient(circle at 15% 8%, rgba(0,0,0,.03), transparent 55%),
+                        radial-gradient(circle at 85% 92%, rgba(0,0,0,.03), transparent 55%);}
+  .sheet{width:1024px;height:1024px;padding:0 0 8px;display:flex;flex-direction:column}
+  .sans{font-family:"Liberation Sans","DejaVu Sans",Arial,sans-serif}
+  .caps{text-transform:uppercase;letter-spacing:.08em}
+
+  .banner{background:var(--red);color:#fdf9ef;text-align:center;padding:5px 0 6px}
+  .banner .t{font-size:17px;font-weight:700;letter-spacing:.16em}
+  .head{padding:6px 18px 5px;text-align:center;border-bottom:2.5px solid var(--ink)}
+  .head h1{margin:0;font-size:50px;line-height:.94;letter-spacing:-1.4px}
+  .head .strap{font-size:10.5px;margin-top:3px;letter-spacing:.14em;color:var(--red);font-weight:700}
+  .head .sub{font-size:8.6px;margin-top:2px;color:var(--ink2);font-style:italic}
+
+  .body{padding:6px 16px 0;display:flex;flex-direction:column;gap:6px;flex:1;min-height:0}
+  .page > *{flex:0 0 auto}
+
+  /* twelve illustrated modules */
+  .mods{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;height:382px}
+  .m{border:1px solid var(--rule);background:#fbf8f0;padding:5px 6px;display:flex;flex-direction:column;overflow:hidden}
+  .m .tag{font-size:6.9px;font-weight:700;letter-spacing:.09em;color:#fff;display:inline-block;padding:1px 4px;margin-bottom:3px;align-self:flex-start}
+  .m h3{margin:0;font-size:11.6px;line-height:1.08}
+  .m p{margin:2px 0 0;font-size:8.1px;line-height:1.24;color:var(--ink2)}
+  .m .ico{margin-top:auto;padding-top:3px}
+  .m .ico svg{display:block;width:100%;height:38px}
+  .m .n{font-family:"Liberation Sans",Arial;font-size:7px;font-weight:700;color:var(--red)}
+
+  /* bottom band: map + briefs + numbers */
+  .band{display:grid;grid-template-columns:556px 1fr;gap:9px;height:362px}
+  .mapbox{border:1px solid var(--rule);background:#fbf8f0;padding:4px 6px 3px;display:flex;flex-direction:column;min-height:0}
+  .mapbox .cap{display:flex;justify-content:space-between;align-items:baseline;font-size:7.8px;margin-bottom:2px}
+  .mapbox .cap b{color:var(--red)}
+  .mapsvg{flex:1;min-height:0}
+  .mapsvg svg{display:block;width:100%;height:100%}
+  .mapkey{font-size:6.5px;color:var(--ink2);line-height:1.3;column-count:3;column-gap:8px;margin-top:2px}
+  .mapkey b{color:var(--red)}
+
+  .right{display:flex;flex-direction:column;gap:6px;min-height:0}
+  .briefs{border:1px solid var(--rule);background:#fbf8f0;padding:4px 6px;flex:1;min-height:0;display:flex;flex-direction:column}
+  .briefs .cap{font-size:7.8px;font-weight:700;letter-spacing:.09em;border-bottom:1.5px solid var(--ink);padding-bottom:2px;margin-bottom:3px;display:flex;justify-content:space-between}
+  .briefcols{display:grid;grid-template-columns:repeat(3,1fr);gap:0 8px;font-size:7.3px;line-height:1.28;min-height:0}
+  .briefcols div{padding:1.6px 0;border-bottom:1px dotted rgba(182,169,143,.7)}
+  .briefcols b{font-family:"Liberation Sans",Arial;color:var(--red);font-size:6.8px}
+  .numbers{border:1px solid var(--rule);background:#fbf8f0;padding:4px 6px}
+  .numbers .cap{font-size:7.8px;font-weight:700;letter-spacing:.09em;border-bottom:1.5px solid var(--ink);padding-bottom:2px;margin-bottom:3px}
+  .figs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px 10px}
+  .fig{display:flex;justify-content:space-between;font-size:7.4px;padding:1.2px 0;border-bottom:1px dotted rgba(182,169,143,.7)}
+  .fig .v{font-family:"Liberation Sans",Arial;font-weight:700;font-size:8.1px}
+  .foot{display:flex;justify-content:space-between;align-items:baseline;font-size:7px;color:var(--ink2);padding:3px 16px 0;border-top:1.5px solid var(--ink);margin-top:4px}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="banner sans caps"><div class="t">The world's news in one picture</div></div>
+  <div class="head">
+    <h1>Wednesday 18 November 2026</h1>
+    <div class="strap sans caps" id="strap">—</div>
+    <div class="sub">Every line below was reported on Wednesday 18 November 2026, in some part of the world, as that day's news.</div>
+  </div>
+
+  <div class="body">
+    <div class="mods" id="mods"></div>
+
+    <div class="band">
+      <div class="mapbox">
+        <div class="cap sans caps"><span><b>Where it happened</b> · every story on one map</span><span id="mapnote" style="color:#413a30"></span></div>
+        <div class="mapsvg" id="map"></div>
+        <div class="mapkey" id="mapkey"></div>
+      </div>
+
+      <div class="right">
+        <div class="briefs">
+          <div class="cap sans caps"><span>Also on Wednesday 18 November</span><span id="briefcount"></span></div>
+          <div class="briefcols" id="briefcols"></div>
+        </div>
+      </div>
+    </div>
+    <div class="numbers">
+          <div class="cap sans caps">The day in numbers</div>
+          <div class="figs">
+            <div class="fig"><span>Nvidia Q3 revenue</span><span class="v">$115.8bn</span></div>
+            <div class="fig"><span>Nvidia revenue, year on year</span><span class="v">+103%</span></div>
+            <div class="fig"><span>Nvidia Q4 guidance</span><span class="v">~$130bn</span></div>
+            <div class="fig"><span>Data-centre revenue</span><span class="v">$107.6bn</span></div>
+            <div class="fig"><span>Kospi / Nikkei on the day</span><span class="v">+2.73% / +1.19%</span></div>
+            <div class="fig"><span>Japan's October exports</span><span class="v">¥11,768.8bn</span></div>
+            <div class="fig"><span>Russian drones launched / downed</span><span class="v">141 / 126</span></div>
+            <div class="fig"><span>EU loan proposed for Ukraine</span><span class="v">€45bn</span></div>
+            <div class="fig"><span>Injured, Prague train collision</span><span class="v">46</span></div>
+            <div class="fig"><span>Extreme-weather deaths, 30 years</span><span class="v">900,000+</span></div>
+            <div class="fig"><span>Extreme-weather losses, 30 years</span><span class="v">$4.7trn</span></div>
+            <div class="fig"><span>Warming projected for 2100</span><span class="v">2.7°C</span></div>
+          </div>
+    </div>
+  </div>
+
+  <div class="foot sans caps">
+    <span id="footleft">—</span>
+    <span>One day · six continents · the world's wires and papers</span>
+  </div>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   Twelve illustrated stories, then the day's other stories as numbered
+   one-liners. Region colours follow the tags: Americas red, Europe blue,
+   Middle East orange, Asia purple, Africa green, Oceania teal.
+------------------------------------------------------------------ */
+const COL = {Americas:"#9d1c15", Europe:"#1d4e89", "Middle East":"#b06a12", Asia:"#6b3fa0", Africa:"#1f6f43", Oceania:"#12706b", World:"#4a4a4a"};
+const R = r => COL[r] || COL.World;
+
+const MODULES = [
+  {n:1, r:"Asia", tag:"Shenzhen · summit", hl:"Xi greets Trump on the tarmac as APEC opens",
+   body:"Jinping met Air Force One and the two walked past an honour guard with jets overhead — the same welcome Trump gave him in September.",
+   ico:"summit"},
+  {n:2, r:"Asia", tag:"Shenzhen · Xi and Putin", hl:"The two leaders vow a multipolar world",
+   body:"Their fifth meeting this year: Putin said sanctions against Russia have \"failed\" and called Shenzhen a sign of a fairer world order.",
+   ico:"handshake"},
+  {n:3, r:"Asia", tag:"Shenzhen · Thursday", hl:"A first three-way table is set for Xi, Trump and Putin",
+   body:"The Kremlin has set aside no more than an hour for the first trilateral of the three powers; Ukraine, Iran and nuclear arms are on it.",
+   ico:"table"},
+  {n:4, r:"Asia", tag:"Shenzhen · Japan", hl:"Xi shakes Takaichi's hand, and no more than that",
+   body:"A first exchange since ties froze over her Taiwan remarks; Beijing's travel advisories, seafood ban and rare-earth curbs still stand.",
+   ico:"flags"},
+  {n:5, r:"Asia", tag:"Manila · Quad", hl:"Quad sets its first joint submarine-hunting flight",
+   body:"Trump, Modi, Albanese and Takaichi, in their first summit for two years, put P-8 and P-3C patrol aircraft in one exercise for 2027.",
+   ico:"plane"},
+  {n:6, r:"Europe", tag:"Ukraine · overnight", hl:"One killed and nearly thirty hurt in overnight strikes",
+   body:"Ukraine says its air defences downed 126 of 141 Russian drones; Moscow says it intercepted 184 Ukrainian drones over four regions.",
+   ico:"drone"},
+  {n:7, r:"Europe", tag:"Brussels · Kyiv aid", hl:"Von der Leyen presses every EU state to back a €45bn loan",
+   body:"Berlin called the Pentagon's advice that Kyiv limit strikes inside Russia \"quite a stupid thing\" — the day's sharpest allied split.",
+   ico:"euro"},
+  {n:8, r:"Europe", tag:"Kyiv · evacuations", hl:"Zelenskyy asks for ten more civilian evacuation corridors",
+   body:"Modelled on the Oleshky truce that let hundreds leave; Putin made a parallel offer for Kostiantynivka in Donetsk.",
+   ico:"family"},
+  {n:9, r:"Europe", tag:"The Hague · chemical arms", hl:"A CS-gas finding brings calls for accountability",
+   body:"An OPCW-backed Ukrainian investigation into a 2024 incident at Illinka was circulated to member states; Estonia and Denmark condemned Russia.",
+   ico:"gavel"},
+  {n:10, r:"Middle East", tag:"Kuwait · Bahrain · Iran", hl:"Iran strikes at US bases as the Gulf exchange widens",
+   body:"Drones at Ali Al Salem and a fourth day of interceptions over Bahrain; US aircraft hit an IRGC missile site on Qeshm Island.",
+   ico:"radar"},
+  {n:11, r:"Middle East", tag:"Gaza · ceasefire", hl:"The Board of Peace warns the Gaza truce may collapse",
+   body:"Israeli tanks advanced in central Gaza, which Hamas called a blatant violation, as the board told the Security Council to act.",
+   ico:"tank"},
+  {n:12, r:"Americas", tag:"Markets · Nvidia", hl:"Nvidia's $115.8bn quarter reignites the AI trade",
+   body:"Revenue more than doubled and the guide for this quarter is about $130bn; Seoul's Kospi jumped 2.73% and Tokyo's Nikkei 1.19%.",
+   ico:"chart"}
+];
+
+const BRIEFS = [
+  {n:13, r:"Americas", t:"Washington: Rubio says there is \"no imminent threat\" to the capital after the reported Iranian plot."},
+  {n:14, r:"Asia", t:"Manila: more than 230 pledges open the ministerial conference on ending violence against children."},
+  {n:15, r:"Europe", t:"Prague: two trains collide near the main station; 46 injured, four of them critically."},
+  {n:16, r:"Americas", t:"Anchorage: Democrat Mary Peltola flips Alaska's Senate seat, giving her party 56 seats in January."},
+  {n:17, r:"Americas", t:"Washington: House Democrats nominate Hakeem Jeffries for speaker, the first Black nominee to the job."},
+  {n:18, r:"Europe", t:"London: sanctions on eight West Bank settlement firms and a group that blocks aid into Gaza."},
+  {n:19, r:"Middle East", t:"Tehran: Iran says it downed a US MQ-9 east of the Strait of Hormuz; Washington says it struck Qeshm."},
+  {n:20, r:"Middle East", t:"Hormuz: a UAE state oil company says one of its vessels was attacked in the strait."},
+  {n:21, r:"Middle East", t:"Sanaa: a Saudi-led air campaign hits the Houthis; the rebels say at least 17 people were killed."},
+  {n:22, r:"Middle East", t:"Gaza: the WHO demands unobstructed aid as flooding meets a fourth winter of war."},
+  {n:23, r:"Europe", t:"Antalya: COP31 enters its last days with 2.7°C of warming projected by 2100."},
+  {n:24, r:"World", t:"Berlin: Germanwatch counts 900,000+ deaths and $4.7trn of losses from extreme weather in 30 years."},
+  {n:25, r:"World", t:"Berkeley Earth is 95% confident 2026 will be the hottest year ever measured."},
+  {n:26, r:"Asia", t:"Antalya: India and Sweden launch LeadIT 3.0 for heavy industry; Brazil joins the group."},
+  {n:27, r:"Asia", t:"Tokyo: India and Japan hold their fourth 2+2 defence and foreign ministers' dialogue."},
+  {n:28, r:"Asia", t:"Tokyo: Jaishankar calls the India-Japan partnership central to Indo-Pacific stability."},
+  {n:29, r:"Asia", t:"Doha: India is re-elected to the ITU Council for the 2027–2030 term."},
+  {n:30, r:"Oceania", t:"Hobart: England take the ODI series 2-1, beating Australia by 97 runs as Duckett makes 133."},
+  {n:31, r:"Asia", t:"Dhaka: India win a tenth SAFF football title, 2-1 over ten-man Pakistan, with an 88th-minute winner."},
+  {n:32, r:"Asia", t:"Tokyo: exports hit a record ¥11,768.8bn, up 20.5%, with chip-equipment shipments up 49.7%."},
+  {n:33, r:"Oceania", t:"Sydney: six of nine RBA members backed a hike to 4.85%, an 18-year high."},
+  {n:34, r:"Americas", t:"Minneapolis: Target beats estimates on $27.1bn of revenue and still slips in early trading."},
+  {n:35, r:"Americas", t:"Mooresville: Lowe's posts $22.8bn of sales and an adjusted $3.10 a share."},
+  {n:36, r:"Americas", t:"Santa Clara: Nvidia adds a $150bn buyback but the shares slide about 2%."},
+  {n:37, r:"Americas", t:"Washington: Fed governor Waller sounds a fresh hawkish warning on rates."},
+  {n:38, r:"Americas", t:"San Francisco: Anthropic's shares price after the close."},
+  {n:39, r:"Europe", t:"Moscow: Lavrov says French trainers amount to direct involvement; Paris rejects being a co-belligerent."},
+  {n:40, r:"Europe", t:"London: the prime minister restates UK support for Ukraine before the trilateral."},
+  {n:41, r:"Europe", t:"Kyiv: the UN counts 372 civilians killed and 1,981 injured in October alone."},
+  {n:42, r:"Americas", t:"Washington: Medicare premiums rise for the coming year."},
+  {n:43, r:"Asia", t:"Beijing: China accuses Washington of abusing export controls over the new chip rule."},
+  {n:44, r:"Asia", t:"Manila: Modi offers ASEAN free e-visas and a joint space hackathon at the India-ASEAN summit."},
+  {n:45, r:"Europe", t:"Moscow: the Kremlin says no full-scale Trump-Putin talks are planned around the summit."}
+];
+
+/* Story numbers -> map pins (lon, lat). Not every brief gets a pin. */
+const PINS = [
+  [1,121.5,22.6],[2,121.5,22.6],[3,121.5,22.6],[4,121.5,22.6],[5,121.0,14.6],[6,31.2,49.0],[7,4.4,50.8],
+  [8,30.5,50.4],[9,4.3,52.1],[10,50.6,26.2],[11,34.4,31.4],[12,-122.0,37.4],[13,-77.0,38.9],[15,14.4,50.1],
+  [16,-149.5,61.2],[17,-77.0,38.9],[18,-0.1,51.5],[19,51.4,35.7],[20,56.3,26.6],[21,44.2,15.4],[22,34.3,31.4],
+  [23,30.7,36.9],[25,-122.3,37.9],[27,139.7,35.7],[30,147.3,-42.9],[31,90.4,23.8],[32,139.7,35.7],
+  [33,151.2,-33.9],[34,-93.3,45.0],[36,-121.9,37.4],[38,-122.4,37.8],[40,-0.1,51.5],[41,30.5,50.4],[43,116.4,39.9],
+  [44,121.0,14.6],[45,37.6,55.8]
+];
+
+const IV = {
+  summit(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#dce7f5"/><rect y="26" width="300" height="12" fill="#c2d3e8"/>
+    <path d="M40 26 L60 26 L60 12 L140 6 L220 12 L220 26 L240 26" fill="#8fa9c4" stroke="#3b5878" stroke-width="1"/>
+    <g fill="#3b5878"><rect x="96" y="10" width="8" height="16"/><rect x="120" y="8" width="8" height="18"/><rect x="150" y="8" width="8" height="18"/><rect x="176" y="10" width="8" height="16"/></g>
+    <path d="M70 8 L110 2 M200 8 L160 2" stroke="#9d1c15" stroke-width="2"/>
+    <g fill="#f0c04a"><path d="M118 24 L128 16 L138 24 Z"/></g>
+  </svg>`},
+  handshake(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#efe6d2"/><g fill="#1d4e89"><circle cx="112" cy="14" r="6"/><rect x="106" y="20" width="12" height="18"/></g>
+    <g fill="#9d1c15"><circle cx="188" cy="14" r="6"/><rect x="182" y="20" width="12" height="18"/></g>
+    <path d="M118 24 L182 24" stroke="#14110d" stroke-width="3"/><circle cx="150" cy="24" r="4" fill="#14110d"/>
+  </svg>`},
+  table(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#e7e2d3"/>
+    <ellipse cx="150" cy="26" rx="70" ry="9" fill="#c8bda4"/><ellipse cx="150" cy="24" rx="70" ry="9" fill="#d8cfb8"/>
+    <g><circle cx="90" cy="14" r="6" fill="#9d1c15"/><circle cx="150" cy="10" r="6" fill="#1d4e89"/><circle cx="210" cy="14" r="6" fill="#6b3fa0"/></g>
+  </svg>`},
+  flags(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#e9e4d6"/>
+    <g transform="translate(96,6)"><rect width="40" height="26" fill="#de2910"/><rect x="6" y="5" width="8" height="8" fill="#ffde00"/><rect x="19" y="10" width="5" height="5" fill="#ffde00"/></g>
+    <g transform="translate(164,6)"><rect width="40" height="26" fill="#fff"/><circle cx="20" cy="13" r="8" fill="#bc002d"/></g>
+  </svg>`},
+  plane(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#d7e4ec"/><path d="M0 30 Q75 24 150 30 T300 28 L300 38 L0 38 Z" fill="#9fc0d4"/>
+    <g fill="#3b5878"><path d="M60 18 L100 10 L140 18 L120 20 L120 26 L114 26 L114 20 Z"/><rect x="92" y="4" width="10" height="6"/></g>
+    <g fill="#9d1c15"><path d="M180 16 L215 10 L248 16 L232 18 L232 23 L227 23 L227 18 Z"/><rect x="208" y="5" width="9" height="5"/></g>
+  </svg>`},
+  drone(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#e6e2d6"/>
+    <g stroke="#9d1c15" stroke-width="1.4" fill="none"><path d="M40 30 L100 12 M60 34 L100 12 M140 30 L110 12"/></g>
+    <g fill="#3b5878"><rect x="150" y="10" width="26" height="6" rx="3"/><rect x="184" y="12" width="16" height="3"/><rect x="196" y="7" width="3" height="13"/></g>
+    <g fill="#9d1c15"><circle cx="210" cy="14" r="3"/></g>
+    <g fill="#b6a98f"><rect x="60" y="32" width="120" height="6"/></g>
+  </svg>`},
+  euro(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#dfe6f0"/>
+    <circle cx="150" cy="19" r="14" fill="#1d4e89"/><text x="150" y="25" text-anchor="middle" font-family="Liberation Sans, Arial" font-size="17" font-weight="bold" fill="#f6f2e8">€</text>
+    <g fill="#3b5878"><rect x="40" y="14" width="80" height="3"/><rect x="40" y="21" width="60" height="3"/><rect x="180" y="14" width="80" height="3"/><rect x="200" y="21" width="60" height="3"/></g>
+  </svg>`},
+  family(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#e8e2d2"/>
+    <g fill="#4a4a4a"><circle cx="120" cy="12" r="5"/><rect x="115" y="17" width="10" height="15"/><circle cx="140" cy="16" r="4"/><rect x="136" y="20" width="8" height="12"/><circle cx="160" cy="14" r="4"/><rect x="156" y="18" width="8" height="14"/></g>
+    <path d="M96 34 L210 34" stroke="#9d1c15" stroke-width="2" stroke-dasharray="5 4"/>
+    <path d="M210 34 l-8 -4 l0 8 z" fill="#9d1c15"/>
+  </svg>`},
+  gavel(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#e6e0d2"/>
+    <g fill="#8a7350"><rect x="120" y="10" width="52" height="9" rx="2" transform="rotate(-18 146 14)"/><rect x="140" y="18" width="8" height="14" transform="rotate(-18 146 14)"/></g>
+    <rect x="110" y="30" width="80" height="6" fill="#b6a98f"/>
+    <g fill="#9d1c15"><path d="M196 22 l10 -4 l10 4 l-10 4 z"/></g>
+  </svg>`},
+  radar(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#e9e4d4"/>
+    <g fill="#3b5878"><path d="M60 34 L70 12 L110 12 L120 34 Z" opacity=".35"/><rect x="80" y="14" width="34" height="4"/><rect x="94" y="18" width="5" height="16"/></g>
+    <g stroke="#9d1c15" stroke-width="1.6" fill="none"><path d="M150 30 A30 30 0 0 1 150 2"/><path d="M162 30 A18 18 0 0 1 162 6"/><path d="M174 30 A8 8 0 0 1 174 16"/></g>
+    <g fill="#9d1c15"><circle cx="210" cy="12" r="3"/><circle cx="232" cy="20" r="2.4"/></g>
+  </svg>`},
+  tank(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#e2ddcd"/>
+    <g fill="#4a5a3a"><rect x="90" y="18" width="90" height="12" rx="3"/><circle cx="104" cy="32" r="5"/><circle cx="132" cy="32" r="5"/><circle cx="160" cy="32" r="5"/><rect x="120" y="10" width="40" height="9"/><rect x="170" y="13" width="34" height="4"/></g>
+    <path d="M0 36 Q60 32 120 36 T300 34" stroke="#b6a98f" stroke-width="2" fill="none"/>
+  </svg>`},
+  chart(){return `<svg viewBox="0 0 300 38" preserveAspectRatio="xMidYMid meet">
+    <rect width="300" height="38" fill="#e4e8dc"/>
+    <g stroke="#c3cbb6" stroke-width="1"><path d="M0 10 L300 10 M0 20 L300 20 M0 30 L300 30"/></g>
+    <path d="M14 32 L60 26 L106 28 L152 18 L198 14 L244 8 L286 4" fill="none" stroke="#1f6f43" stroke-width="2.4"/>
+    <g fill="#1f6f43"><circle cx="286" cy="4" r="3"/></g>
+    <text x="14" y="14" font-family="Liberation Sans, Arial" font-size="10" font-weight="bold" fill="#1f6f43">$115.8bn</text>
+  </svg>`}
+};
+
+/* ------------------------------------------------------------------ */
+function moduleHTML(m){
+  return `<div class="m">
+    <span class="tag sans caps" style="background:${R(m.r)}">${m.tag}</span>
+    <h3><span class="n sans">${m.n}</span> ${m.hl}</h3>
+    <p>${m.body}</p>
+    <div class="ico">${IV[m.ico]()}</div>
+  </div>`;
+}
+
+function render(){
+  document.getElementById('mods').innerHTML = MODULES.map(moduleHTML).join('');
+
+  /* briefs as numbered one-liners in two columns, split by measure */
+  const per = Math.ceil(BRIEFS.length/3);
+  const parts = [BRIEFS.slice(0,per), BRIEFS.slice(per,2*per), BRIEFS.slice(2*per)];
+  document.getElementById('briefcols').innerHTML =
+    parts.map(list=>`<div>${list.map(b=>`<div><b>${b.n}</b> <span style="color:${R(b.r)}">▪</span> ${b.t}</div>`).join('')}</div>`).join('');
+  document.getElementById('briefcount').textContent = (MODULES.length + BRIEFS.length) + " stories";
+
+  const stories = MODULES.length + BRIEFS.length;
+  document.getElementById('strap').textContent = `${stories} stories · 6 continents · all from Wednesday`;
+  document.getElementById('footleft').textContent = `Compiled from the day's reporting · ${PINS.length} places on the map · ${stories} stories`;
+
+  document.getElementById('mapkey').innerHTML = PINS.slice(0,24).map(([n])=>`<b>${n}</b>`).join(" ") ;
+  return stories;
+}
+
+async function drawMap(){
+  const W = 640, H = 168, lon0=-180, lon1=180, lat0=-58, lat1=84;
+  const px = lon => (lon-lon0)/(lon1-lon0)*W, py = lat => (lat1-lat)/(lat1-lat0)*H;
+  let land = "";
+  try{
+    const gj = await (await fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_land.geojson')).json();
+    const d = [], ring = c => { let s=""; c.forEach(([lo,la],i)=>{ s += (i?"L":"M")+px(lo).toFixed(1)+" "+py(la).toFixed(1); }); return s+"Z"; };
+    gj.features.forEach(f=>{ const g=f.geometry; if(!g) return;
+      if(g.type==='Polygon') g.coordinates.forEach(r=>d.push(ring(r)));
+      else if(g.type==='MultiPolygon') g.coordinates.forEach(p=>p.forEach(r=>d.push(ring(r)))); });
+    land = d.join(" ");
+    document.getElementById('mapnote').textContent = "Natural Earth 110m";
+  }catch(e){ document.getElementById('mapnote').textContent = "coastline source unavailable"; }
+
+  /* one pin per place, carrying every story number that happened there */
+  const grouped = new Map();
+  PINS.forEach(([n,lon,lat])=>{ const k = lon.toFixed(1)+","+lat.toFixed(1);
+    if(!grouped.has(k)) grouped.set(k,{lon,lat,ns:[]});
+    grouped.get(k).ns.push(n); });
+  const marks = [...grouped.values()].map(g=>{
+    const x = px(g.lon), y = py(g.lat);
+    const label = g.ns.length > 3 ? "•" : g.ns.join(",");
+    const w = Math.max(9, label.length*5.4);
+    return `<g><rect x="${(x-w/2).toFixed(1)}" y="${(y-6).toFixed(1)}" width="${w.toFixed(1)}" height="12" rx="2.5"
+      fill="${g.ns.length>3?"#4a4a4a":"#9d1c15"}" stroke="#f6f2e8" stroke-width="1"/>
+      <text x="${x.toFixed(1)}" y="${(y+3).toFixed(1)}" text-anchor="middle" font-family="Liberation Sans, Arial"
+        font-size="6.8" font-weight="bold" fill="#f6f2e8">${label}</text></g>`;
+  }).join('');
+  document.getElementById('map').innerHTML = `
+  <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
+    <rect width="${W}" height="${H}" fill="#e7e0cd"/>
+    <g stroke="#d3c9b0" stroke-width=".5">${[0,1,2,3,4].map(i=>`<path d="M0 ${(i*H/4).toFixed(1)} L${W} ${(i*H/4).toFixed(1)}"/>`).join('')}
+      ${[0,1,2,3,4,5,6,7].map(i=>`<path d="M${(i*W/8).toFixed(1)} 0 L${(i*W/8).toFixed(1)} ${H}"/>`).join('')}</g>
+    <path d="${land}" fill="#b8a67f" stroke="#4b4235" stroke-width=".5" fill-rule="evenodd"/>
+    ${marks}
+  </svg>`;
+}
+
+render();
+drawMap();
+</script>
+</body>
+</html>
